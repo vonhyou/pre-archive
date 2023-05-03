@@ -1,5 +1,7 @@
 \documentclass{beamer}
 
+\usetheme{Madrid}
+
 % ------------------
 % Presentation title
 % ------------------
@@ -20,9 +22,12 @@
 % -----------------------
 % Table of Contents Frame
 % -----------------------
-\begin{frame}{Table of Contents}
-  \tableofcontents
-\end{frame}
+
+\AtBeginSection[] {
+  \begin{frame}{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
 
 % ----------------------
 % Introduction Section
