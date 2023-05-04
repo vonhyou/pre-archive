@@ -30,10 +30,10 @@
 \frame{\titlepage}
 
 % -----------------------
-% Table of Contents Frame
+% ToCs Frame
 % -----------------------
 
-\begin{frame}{Table of Contents}
+\begin{frame}{Table of contents}
   \tableofcontents
 \end{frame}
 
@@ -50,7 +50,7 @@
 % -------------------------------
 % Purpose of the Presentation Frame
 % -------------------------------
-\begin{frame}{Purpose of the Presentation}
+\begin{frame}{Purpose of the presentation}
   \textbf{Paper}: An Empirical Analysis of the Commercial VPN Ecosystem
   \begin{itemize}
     \item Reproduce the process of exploration
@@ -73,7 +73,7 @@
 % ----------------------
 % Background Information Frame
 % ----------------------
-\begin{frame}{Background Information}
+\begin{frame}{Background information}
   \begin{itemize}
     \item The increasing demand for privacy, security and freedom
     \item The VPN ecosystem is highly opaque \pause{}
@@ -92,12 +92,12 @@
 \section{Methodology}
 
 % ----------------------------------
-% Measurement System Used Subsection
+% Candidate Selection and Data Collection Subsection
 % ----------------------------------
-\subsection{Candidate selection and data collection}
+\subsection{Candidate Selection and Data Collection}
 
 % -----------------------------
-% Measurement System Used Frame
+% Candidate Selection and Data Collection Frame
 % -----------------------------
 \begin{frame}{Candidate selection and data collection}
   \colorbox{blue!40}{62} test subjects in \colorbox{DALYellow}{200} candidates
@@ -107,18 +107,50 @@
     \item \colorbox{blue!40}{Limitation}: maximize coverage, free or has free trial
     \item \colorbox{blue!40}{Diversity}: random selection \pause{}
   \end{itemize}
+  Public Information: business relationship, business location\\
+  Geolocation: IP2Location Lite, MaxMind`s GeoLite2, and Google
 \end{frame}
 
 % --------------------------------
-% Data Collection and Analysis Methods Subsection
+% Testing Infrastructure Subsection
 % --------------------------------
-\subsection{Data Collection and Analysis Methods}
+\subsection{Testing Infrastructure}
 
 % ------------------------------------
-% Data Collection and Analysis Methods Frame
+% Testing Infrastructure Frame
 % ------------------------------------
-\begin{frame}{Data Collection and Analysis Methods}
-  % add content here
+\begin{frame}{Testing infrastructure}
+  Traffic Interception and Manipulation Tests
+  \begin{itemize}
+    \item DNS manipulation
+    \item DOM and request collection
+    \item TLS interception and downgrade detection
+  \end{itemize} \pause{}
+
+  Infrastructure Inference Tests
+  \begin{itemize}
+    \item Recursive DNS origins
+    \item Ping and traceroute data
+    \item Geolocation via Google API
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Testing infrastructure}
+  Leakage Based Tests
+  \begin{itemize}
+    \item DNS leakage
+    \item IPv6 leakage
+    \item Recovery from tunnel failure
+  \end{itemize} \pause{}
+
+  VPN Metadata and packet captures
+  \begin{itemize}
+    \item Routing and ARP tables
+    \item Interface lists
+    \item Configured DNS resolvers
+    \item Pings to any /32 IPv4 routes
+  \end{itemize}
+
 \end{frame}
 
 % --------------
