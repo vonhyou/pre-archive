@@ -54,7 +54,7 @@
   \textbf{Paper}: An Empirical Analysis of the Commercial VPN Ecosystem
   \begin{itemize}
     \item Reproduce the process of exploration
-    \item Summrize the result
+    \item Summrize the result and related works
   \end{itemize}
 
   \textbf{Project}: Analyze IMA traffic over \colorbox{DALYellow}{VPNs}
@@ -154,15 +154,60 @@
 \end{frame}
 
 % --------------
-% Result Section
+% Summarize Section
 % --------------
-\section{Result}
+\section{Summarize}
+
+\subsection{Result and Related Works}
 
 % ------------------
 % Result Frame
 % ------------------
 \begin{frame}{Result}
-  % add content here
+  Traffic manipulation
+  \begin{itemize}
+    \item URL redirection, TLS downgrade
+    \item Traffic injection/modification
+  \end{itemize} \pause{}
+
+  Traffic monitoring
+  \begin{itemize}
+    \item Header-based proxy detection
+    \item Soliciting providers
+  \end{itemize} \pause{}
+
+  VPN server infrastructure
+  \begin{itemize}
+    \item Shared server
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Result}
+  Geographic distribution
+  \begin{itemize}
+    \item Comparing with Geo-IP databases
+    \item Identifying `virtual' vantage points.
+  \end{itemize}
+
+  Traffic leakage
+  \begin{itemize}
+    \item DNS leakage
+    \item IPv6 leakage
+  \end{itemize} \pause{}
+
+  Peer-to-peer traffic
+
+\end{frame}
+
+\begin{frame}{Related Works}
+  \begin{itemize}
+    \item Vulnerabilities in VPN services
+    \item VPN-based measurements
+    \item Open HTTP proxies
+  \end{itemize}
+
 \end{frame}
 
 % -----------------
@@ -171,26 +216,40 @@
 \section{Future Work}
 
 % --------------------------------
-% On VPN Service Selection Subsection
+% Rework on VPN Service Selection Subsection
 % --------------------------------
-\subsection{On VPN Service Selection}
+\subsection{Rework on VPN Service Selection}
 
 % -----------------------------
 % On VPN Service Selection Frame
 % -----------------------------
-\begin{frame}{On VPN Service Selection}
-  % add content here
+\begin{frame}{Rework on VPN Service Selection}
+  Problems:
+  \begin{itemize}
+    \item The information in the paper is outdated
+    \item Cancellation of free trial period
+    \item The original work cannot be accessed\footnotemark{}
+  \end{itemize}
+
+  Solution:
+  \begin{itemize}
+    \item Reproduce the entire selection process
+    \item \textbf{Self-host} OpenVPN service\footnotemark{}
+  \end{itemize}
+
+  \footnotetext[1]{The website by authors: vpnselection.guide}
+  \footnotetext[2]{\textit{Most} commercial VPN services use OpenVPN or WireGuard}
 \end{frame}
 
 % ------------------
-% On Automation Subsection
+% Simulate Certain Environments Subsection
 % ------------------
-\subsection{On Automation}
+\subsection{Simulate Certain Environments}
 
 % -----------------------
-% On Automation Frame
+% Simulate Certain Environments Frame
 % -----------------------
-\begin{frame}{On Automation}
+\begin{frame}{Simulate Certain Environments}
   % add content here
 \end{frame}
 
