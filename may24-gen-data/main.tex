@@ -1,0 +1,72 @@
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+\definecolor{DALYellow}{RGB}{255, 212, 0}
+% \usecolortheme[named=DALBlack]{structure}
+
+\beamertemplatenavigationsymbolsempty{}
+
+% Set page number
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+% ------------------
+% Presentation title
+% ------------------
+\title[Weekly Meeting]{
+    USRA Summer Weekly Meeting
+}
+\subtitle[]{Data Generation}
+\author[Shuo Feng]{S. Feng}
+\institute[NIMS Lab]{
+  NIMS Lab\\
+  USRA Summer 2023}
+\date{\today}
+
+\logo{\includegraphics[height=1cm]{src/dal-logo-vm}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Process}
+  Environment:
+  \begin{itemize}
+    \item Android Virtual Devices (Genymotion, WSA)
+    \item Androiddump (Fiddler, TCPdump)
+  \end{itemize}
+
+  Tools:
+  \begin{itemize}
+    \item Powershell Scripts (TikTok)
+    \item HTML/JavaScript (Browsering)
+    \item Dataset from kaggle (Google Drive)
+  \end{itemize}
+
+  Result:
+  \begin{itemize}
+    \item TikTok: 1 hour, 41k packets
+    \item Browsering: 22 mins, 24k packets
+    \item Google Drive: 44 mins, 925k packets
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Improvements}
+  Browsering:
+  \begin{itemize}
+    \item Problem: the environment will crash (memory)
+    \item Solution: write a native app using Java/Kotlin
+  \end{itemize}
+
+  Google Drive:
+  \begin{itemize}
+    \item Problem:
+          \begin{itemize}
+            \item Cannot upload large size file (memory*)
+            \item The app will crash
+            \item Cannot large volume of files
+          \end{itemize}
+    \item Solution: improve system specs/ change data set
+  \end{itemize}
+\end{frame}
+
+\end{document}
