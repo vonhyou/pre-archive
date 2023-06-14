@@ -2,6 +2,11 @@
 
 > This repository is used for managing all LaTeX beamer project authored by myself
 
+## June 14, 2023
+
+- compiled file: [main.pdf](/06-jun14-meeting/out/main.pdf)
+- report: [report.pdf](/06-jun14-meeting/out/report.pdf)
+
 ## June 7, 2023
 
 - Compiled file: [main.pdf](/05-jun07-meeting/out/main.pdf)
