@@ -1,0 +1,107 @@
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+\definecolor{DALYellow}{RGB}{255, 212, 0}
+% \usecolortheme[named=DALBlack]{structure}
+
+\usepackage{multirow}
+\usepackage{booktabs} % for the top, the mid and bottom line
+\usepackage{siunitx}  % for 'S' type column
+
+\beamertemplatenavigationsymbolsempty{}
+
+% Set page number
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+% ------------------
+% Presentation title
+% ------------------
+\title[Weekly Meeting]{
+    USRA Summer Weekly Meeting
+}
+\subtitle[]{Data Generation}
+\author[Shuo Feng]{S. Feng}
+\institute[NIMS Lab]{
+  NIMS Lab\\
+  USRA Summer 2023}
+\date{\today}
+
+\logo{\includegraphics[height=1cm]{src/dal-logo-vm}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Wrap-up: June 15 to June 20}
+
+  Attempts:
+  \begin{itemize}
+    \item Retry working environment migration
+    \item Improve capturing method for Google Drive and TikTok
+    \item Recapture packets for TikTok
+    \item Investigate Kakao Talk, Line and Slack
+  \end{itemize}
+
+  Results:
+  \begin{itemize}
+    \item Migration: tentative solution due to incompatible hardware
+    \item Capturing: gathered 10 PCAP files in total
+    \item Investigation: see attached report
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Capturing}
+  TikTok:
+  \begin{itemize}
+    \item Switch from random to fixed time intervals
+    \item Abandon bash shell script
+    \item Abandon auto login due to anti-bot policy
+  \end{itemize}
+
+  Google Drive:
+  \begin{itemize}
+    \item Write a Scala script to generate dummy files of any size
+    \item Split into three stages for different file sizes (crash)
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Capturing}
+
+  \begin{table}[htbp]
+    \centering
+    \caption{Captured Data}
+    \begin{tabular}{ll *{5}{S[table-format=4.0]}}
+      \toprule
+                              &             & {10:00} & {13:00} & {15:00} & {18:00} & {20:00} \\
+      \midrule
+      \multirow{2}{*}{TikTok} & Packets (K) & 506     & 529     & 711     & 511     & 587     \\
+                              & Size (MB)   & 485     & 514     & 725     & 500     & 596     \\
+      \addlinespace
+      \multirow{2}{*}{Drive}  & Packets (K) &         & 3851    & 3404    & 2954    & 3562    \\
+                              & Size (MB)   &         & 2930    & 2592    & 2253    & 2717    \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\end{frame}
+
+\begin{frame}{What to do next: June 8 to June 13}
+  Schedule:
+  \begin{itemize}
+    \item Do not bother migrating to the Linux environment
+    \item Continue capturing traffic for other apps
+    \item Design automation method for the selected app
+  \end{itemize}
+
+  Three things to mention:
+  \begin{itemize}
+    \item I spent a lot of time dealing with unrelated issues
+    \item Request not to capture traffic in public places due to noise
+    \item I need a hard drive too
+  \end{itemize}
+
+\end{frame}
+
+\end{document}
