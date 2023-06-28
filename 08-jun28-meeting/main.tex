@@ -1,0 +1,115 @@
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+\definecolor{DALYellow}{RGB}{255, 212, 0}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+
+% Define block styles
+\tikzstyle{decision} = [draw, diamond, aspect=2, fill=blue!20]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=3em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse, fill=red!20, node distance=3cm, minimum height=2em]
+\tikzstyle{textyn} = [rectangle, text width=5em, text centered]
+
+\beamertemplatenavigationsymbolsempty{}
+
+% Set page number
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+% ------------------
+% Presentation title
+% ------------------
+\title[Weekly Meeting]{
+    USRA Summer Weekly Meeting
+}
+\subtitle[]{Data Generation}
+\author[Shuo Feng]{S. Feng}
+\institute[NIMS Lab]{
+  NIMS Lab\\
+  USRA Summer 2023}
+\date{\today}
+
+\logo{\includegraphics[height=1cm]{src/dal-logo-vm}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Wrap-up: June 22 to June 27}
+
+  Attempts:
+  \begin{itemize}
+    \item Improve chrome automation script
+    \item Improve the automation script for Slack
+    \item Find rootable physical Android device
+  \end{itemize}
+
+  Results:
+  \begin{itemize}
+    \item Reimplemented all existing scripts with Scala language
+    \item All existing physical Android devices are not usable
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Old Capturing Process for Slack}
+  \begin{center}
+    \begin{tikzpicture}[node distance = 2cm, auto]
+      % place nodes
+      \node [block] (gen) {generate string};
+      \node [cloud, left of=gen] (start) {start};
+      \node [block, below of=gen] (sleep) {sleep \textit{x} seconds};
+      \node [block, below of=sleep] (send) {send string via API/adb};
+      \node [textyn, left of=send, node distance=3cm] (yes) {yes};
+      \node [textyn, right of=send, node distance=3cm] (no) {no};
+      \node [decision, below of=send] (decide) {still have time?};
+      \node [cloud, right of=sleep, node distance=3cm] (stop) {stop};
+
+      \node [right of=gen, node distance=4cm, text width=9em] (ex) {API for `server side' adb for emulator};
+
+      % draw edges
+      \path [line] (gen) -- (sleep);
+      \path [line] (sleep) -- (send);
+      \path [line] (send) -- (decide);
+      \path [line] (decide) -| (yes);
+      \path [line] (yes) |- (sleep);
+      \path [line] (decide) -| (no);
+      \path [line] (no) -- (stop);
+      \path [line] (start) -- (gen);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{New Capturing Process for Slack}
+
+  \begin{center}
+    \begin{tikzpicture}[node distance = 2cm, auto]
+      % place nodes
+      \node [cloud, above of = gen, node distance=1.5cm] (start) {start};
+      \node [block] (gen) {generate string};
+      \node [block, left of = gen, node distance=4cm] (emu) {send message via emu};
+      \node [block, right of = gen, node distance=4cm] (API) {send message via API};
+      \node [textyn, below of=gen, node distance=1.3cm] (yes) {yes};
+      \node [decision, below of = yes, node distance=1.5cm] (decide) {still have time?};
+      \node [textyn, below of=decide, node distance=1.5cm] (no) {no};
+      \node [cloud, below of = no, node distance=1cm] (stop) {stop};
+
+      % place edges
+      \path [line] (start) -- (gen);
+      \path [line] (gen) -- (emu);
+      \path [line] (gen) -- (API);
+      \path [line] (emu) |- (decide);
+      \path [line] (API) |- (decide);
+      \path [line] (decide) -- (yes);
+      \path [line] (decide) -- (no);
+      \path [line] (yes) -- (gen);
+      \path [line] (no) -- (stop);
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\end{document}
