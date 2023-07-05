@@ -1,0 +1,114 @@
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+\definecolor{DALYellow}{RGB}{255, 212, 0}
+% \usecolortheme[named=DALBlack]{structure}
+
+\usepackage{multirow}
+\usepackage{booktabs} % for the top, the mid and bottom line
+\usepackage{siunitx}  % for 'S' type column
+
+\beamertemplatenavigationsymbolsempty{}
+
+% Set page number
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+% ------------------
+% Presentation title
+% ------------------
+\title[Weekly Meeting]{
+    USRA Summer Weekly Meeting
+}
+\subtitle[]{Data Generation}
+\author[Shuo Feng]{S. Feng}
+\institute[NIMS Lab]{
+  NIMS Lab\\
+  USRA Summer 2023}
+\date{\today}
+
+\logo{\includegraphics[height=1cm]{src/dal-logo-vm}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Wrap-up: June 29 to July 4}
+
+  Attempts:
+  \begin{itemize}
+    \item Capture traffic for Android apps
+  \end{itemize}
+
+  Progress:
+  \begin{itemize}
+    \item Home: Slack, TikTok, Google Drive, Chrome
+    \item Lab: Slack
+  \end{itemize}
+
+  Result:
+  \begin{itemize}
+    \item See the tables below
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Capturing: Home}
+
+  \begin{table}[htbp]
+    \centering
+    \caption{Captured Data at Home}
+    \begin{tabular}{ll *{5}{S[table-format=4.0]}}
+      \toprule
+                              &             & {10:00} & {13:00} & {15:00} & {18:00} & {20:00} \\
+      \midrule
+      \multirow{2}{*}{TikTok} & Packets (K) & 506     & 529     & 711     & 511     & 587     \\
+                              & Size (MB)   & 485     & 514     & 725     & 500     & 596     \\
+      \addlinespace
+      \multirow{2}{*}{Drive}  & Packets (K) & 3197    & 3851    & 3404    & 2954    & 3562    \\
+                              & Size (MB)   & 2436    & 2930    & 2592    & 2253    & 2717    \\
+      \addlinespace
+      \multirow{2}{*}{Chrome} & Packets (K) & 449     & 453     & 373     & 367     & 302     \\
+                              & Size (MB)   & 278     & 286     & 213     & 214     & 176     \\
+      \addlinespace
+      \multirow{2}{*}{Slack}  & Packets (K) & 62      & 45      & 62      & 58      & 58      \\
+                              & Size (MB)   & 33      & 23      & 31      & 29      & 29      \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\end{frame}
+
+\begin{frame}{Capturing: Lab}
+
+  \begin{table}[htbp]
+    \centering
+    \caption{Captured Data at Lab}
+    \begin{tabular}{ll *{5}{S[table-format=4.0]}}
+      \toprule
+                             &             & {10:00}     & {13:00} & {15:00} & {18:00} & {20:00} \\
+      \midrule
+      \multirow{2}{*}{Slack} & Packets (K) & \textbf{95} & 50      & 42      & 55      & 52      \\
+                             & Size (MB)   & \textbf{70} & 27      & 25      & 30      & 28      \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \begin{itemize}
+    \item 550 messages send/receive in total
+    \item 65,000 characters transmitted
+    \item 60,000 packets
+    \item 30 MB PCAP file size
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{What to do next: July 6 to July 11}
+  Schedule:
+  \begin{itemize}
+    \item Finish capturing traffic at Lab
+    \item Start capturing traffic at Killam library
+  \end{itemize}
+
+\end{frame}
+
+\end{document}
