@@ -1,0 +1,114 @@
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+\definecolor{DALYellow}{RGB}{255, 212, 0}
+% \usecolortheme[named=DALBlack]{structure}
+
+\usepackage{multirow}
+\usepackage{booktabs} % for the top, the mid and bottom line
+\usepackage{siunitx}  % for 'S' type column
+
+\beamertemplatenavigationsymbolsempty{}
+
+% Set page number
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+% ------------------
+% Presentation title
+% ------------------
+\title[Weekly Meeting]{
+    USRA Summer Weekly Meeting
+}
+\subtitle[]{Data Generation}
+\author[Shuo Feng]{S. Feng}
+\institute[NIMS Lab]{
+  NIMS Lab\\
+  USRA Summer 2023}
+\date{\today} 
+
+\logo{\includegraphics[height=1cm]{src/dal-logo-vm}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Wrap-up: June 6 to July 11}
+
+  Attempts:
+  \begin{itemize}
+    \item Capture traffic for Android apps
+  \end{itemize}
+
+  Progress:
+  \begin{itemize}
+    \item Home: Slack 9/10 AM and midnight
+    \item Lab: Slack 9/10 AM and Chrome (part)
+  \end{itemize}
+
+  Result:
+  \begin{itemize}
+    \item See the tables below
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Capturing: Slack}
+
+  \begin{table}[htbp]
+    \centering
+    \caption{Captured Data}
+    \begin{tabular}{ll *{5}{S[table-format=4.0]}}
+      \toprule
+                            &             & {10:00} & {13:00} & {15:00} & {18:00} & {20:00} \\
+      \midrule
+      \multirow{2}{*}{Home} & Packets (K) & 62      & 45      & 62      & 58      & 58      \\
+                            & Size (MB)   & 33      & 23      & 31      & 29      & 29      \\
+      \addlinespace
+      \multirow{2}{*}{Lab}  & Packets (K) & 95      & 50      & 42      & 55      & 52      \\
+                            & Size (MB)   & 70      & 27      & 25      & 30      & 28      \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+    \centering
+    \caption{Supplementary Test}
+    \begin{tabular}{rrrrr}
+      \toprule
+              & 09:00 & 10:00 & 23:55 & 00:05 \\
+      \midrule
+      Packets & 53/83 & 61/69 & 5.7   & 5.0   \\
+      Size    & 27/53 & 31/39 & 2.8   & 2.7   \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\end{frame}
+
+\begin{frame}{What to do next: July 13 to July 17}
+  \begin{table}[htbp]
+    \centering
+    \caption{Data Captured - Chrome}
+    \begin{tabular}{rrrrrr}
+      \toprule
+              & 1000 & 1300 & 1500 & 1800 & 2000 \\
+      \midrule
+      Packets & -    & 404  & 313  & -    & -    \\
+      Size    & -    & 248  & 187  & -    & -    \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  Note: the pattern found at lab is identical to the previous one
+
+  \vspace{20px}
+
+  Schedule:
+  \begin{itemize}
+    \item Continue capturing traffic at Lab
+    \item Try to start capturing traffic at Killam library
+  \end{itemize}
+
+\end{frame}
+
+\end{document}
